@@ -1,2 +1,2 @@
 # otel-demos
-Demo OpenTelemetry apps
+Demo OpenTelemetry apps.
