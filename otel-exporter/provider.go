@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/google/uuid"
 	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp"
 	"go.opentelemetry.io/otel/sdk/metric"
 	"go.opentelemetry.io/otel/sdk/resource"
@@ -15,6 +16,7 @@ func newMeterProvider() (*metric.MeterProvider, error) {
 		resource.NewWithAttributes(semconv.SchemaURL,
 			semconv.ServiceName("otel-test"),
 			semconv.ServiceVersion("0.1.0"),
+			semconv.ServiceInstanceID(uuid.NewString()),
 		))
 	if err != nil {
 		return nil, err
@@ -22,8 +24,8 @@ func newMeterProvider() (*metric.MeterProvider, error) {
 
 	me, err := otlpmetrichttp.New(
 		context.Background(),
-		otlpmetrichttp.WithEndpoint("localhost:8000"),
-		otlpmetrichttp.WithURLPath("/otlp/v1/metrics"),
+		otlpmetrichttp.WithEndpoint("localhost:9090"),
+		otlpmetrichttp.WithURLPath("/api/v1/otlp/v1/metrics"),
 		otlpmetrichttp.WithInsecure(),
 	)
 	if err != nil {
