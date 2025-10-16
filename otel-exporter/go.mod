@@ -2,7 +2,7 @@ module github.com/grafana/otel-demos/otel-export
 
 go 1.23.0
 
-toolchain go1.24.9
+toolchain go1.25.3
 
 require (
 	github.com/google/uuid v1.4.0
