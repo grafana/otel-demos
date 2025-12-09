@@ -133,7 +133,7 @@ func sendRequest(startTime, dataPointTime, exemplarTime time.Time) error {
 						},
 						Metrics: []Metric{
 							{
-								Name:        "http_requests_total",
+								Name:        "http.requests",
 								Description: "Total number of HTTP requests",
 								Unit:        "1",
 								Sum: &Sum{
