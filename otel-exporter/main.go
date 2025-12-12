@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"go.opentelemetry.io/otel/metric"
-	semconv "go.opentelemetry.io/otel/semconv/v1.24.0"
+	semconv "go.opentelemetry.io/otel/semconv/v1.36.0"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 
 	for {
 		counter.Add(context.Background(), 1,
-			metric.WithAttributes(semconv.HTTPStatusCode(200)))
+			metric.WithAttributes(semconv.HTTPResponseStatusCode(200)))
 		time.Sleep(time.Second)
 	}
 }
