@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.24.9
 
 require (
-	github.com/google/uuid v1.4.0
+	github.com/google/uuid v1.6.0
 	go.opentelemetry.io/otel v1.24.0
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp v1.24.0
 	go.opentelemetry.io/otel/metric v1.24.0
